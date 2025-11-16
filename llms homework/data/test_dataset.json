@@ -1,0 +1,212 @@
+[
+  {
+    "test_id": "positive_001",
+    "query_code": "def find_sum_pair(numbers: list[int], goal: int) -> list[int]:\n    for x in range(len(numbers)):\n        for y in range(x + 1, len(numbers)):\n            if numbers[x] + numbers[y] == goal:\n                return [x, y]\n    return []",
+    "is_plagiarized": true,
+    "source_file": "twoSum.py",
+    "source_function_name": "twoSum"
+  },
+  {
+    "test_id": "negative_001",
+    "query_code": "def simple_quicksort(items):\n    if len(items) <= 1:\n        return items\n    pivot_val = items[0]\n    less = [i for i in items[1:] if i <= pivot_val]\n    greater = [i for i in items[1:] if i > pivot_val]\n    return simple_quicksort(less) + [pivot_val] + simple_quicksort(greater)",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_002",
+    "query_code": "def sum_linked_lists(node1, node2):\n    head_node = ListNode()\n    current_node = head_node\n    c = 0\n    while node1 or node2 or c:\n        val1 = node1.val if node1 else 0\n        val2 = node2.val if node2 else 0\n        s = val1 + val2 + c\n        c = s // 10\n        current_node.next = ListNode(s % 10)\n        current_node = current_node.next\n        if node1: node1 = node1.next\n        if node2: node2 = node2.next\n    return head_node.next",
+    "is_plagiarized": true,
+    "source_file": "addTwoNumbers.py",
+    "source_function_name": "addTwoNumbers"
+  },
+  {
+    "test_id": "negative_002",
+    "query_code": "def remove_value(data, value_to_remove):\n    write_idx = 0\n    for i in range(len(data)):\n        if data[i] != value_to_remove:\n            data[write_idx] = data[i]\n            write_idx += 1\n    return write_idx",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_003",
+    "query_code": "from numpy import median\ndef calculate_median_of_combined_arrays(arr1, arr2):\n    combined = arr1 + arr2\n    combined.sort()\n    return median(combined)",
+    "is_plagiarized": true,
+    "source_file": "findMedianSortedArrays.py",
+    "source_function_name": "findMedianSortedArrays"
+  },
+  {
+    "test_id": "negative_003",
+    "query_code": "def integer_to_roman_string(n):\n        mapping = {1000:'M', 900:'CM', 500:'D', 400:'CD', 100:'C', 90:'XC', 50:'L', 40:'XL', 10:'X', 9:'IX', 5:'V', 4:'IV', 1:'I'}\n        roman_str = ''\n        for val, sym in mapping.items():\n            while n >= val:\n                roman_str += sym\n                n -= val\n        return roman_str",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_004",
+    "query_code": "def parse_string_to_int(text):\n    text = text.lstrip()\n    if not text: return 0\n    sign_multiplier, start_index = (1, 0)\n    if text[0] in ['-', '+']:\n        if text[0] == '-': sign_multiplier = -1\n        start_index = 1\n    num = 0\n    for char in text[start_index:]:\n        if not char.isdigit(): break\n        num = num * 10 + int(char)\n        if sign_multiplier * num > 2**31 - 1: return 2**31 - 1\n        if sign_multiplier * num < -2**31: return -2**31\n    return sign_multiplier * num",
+    "is_plagiarized": true,
+    "source_file": "myAtoi.py",
+    "source_function_name": "myAtoi"
+  },
+  {
+    "test_id": "negative_004",
+    "query_code": "def get_all_subsets(items):\n    result = [[]]\n    for item in items:\n        result.extend([subset + [item] for subset in result])\n    return result",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_005",
+    "query_code": "def convert_to_roman(n):\n    mapping = {1000: 'M', 900: 'CM', 500: 'D', 400: 'CD', 100: 'C', 90: 'XC', 50: 'L', 40: 'XL', 10: 'X', 9: 'IX', 5: 'V', 4: 'IV', 1: 'I'}\n    result = ''\n    for val, sym in mapping.items():\n        result += (n // val) * sym\n        n %= val\n    return result",
+    "is_plagiarized": true,
+    "source_file": "intToRoman.py",
+    "source_function_name": "intToRoman"
+  },
+  {
+    "test_id": "negative_005",
+    "query_code": "def find_in_rotated_array(data, val):\n    low, high = 0, len(data) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if data[mid] == val: return mid\n        if data[low] <= data[mid]:\n            if data[low] <= val < data[mid]: high = mid - 1\n            else: low = mid + 1\n        else:\n            if data[mid] < val <= data[high]: low = mid + 1\n            else: high = mid - 1\n    return -1",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_006",
+    "query_code": "def find_all_subsets(items):\n    powerset = []\n    def backtrack(start, current_subset):\n        powerset.append(list(current_subset))\n        for i in range(start, len(items)):\n            current_subset.append(items[i])\n            backtrack(i + 1, current_subset)\n            current_subset.pop()\n    backtrack(0, [])\n    return powerset",
+    "is_plagiarized": true,
+    "source_file": "subsets.py",
+    "source_function_name": "subsets"
+  },
+  {
+    "test_id": "negative_006",
+    "query_code": "from collections import Counter\ndef group_by_anagrams(words):\n    groups = {}\n    for word in words:\n        key = tuple(sorted(Counter(word).items()))\n        if key not in groups:\n            groups[key] = []\n        groups[key].append(word)\n    return list(groups.values())",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_007",
+    "query_code": "def find_closest_3sum(arr, t):\n    arr.sort()\n    closest_sum = float('inf')\n    for i in range(len(arr) - 2):\n        l, r = i + 1, len(arr) - 1\n        while l < r:\n            current_sum = arr[i] + arr[l] + arr[r]\n            if abs(current_sum - t) < abs(closest_sum - t):\n                closest_sum = current_sum\n            if current_sum < t:\n                l += 1\n            else:\n                r -= 1\n    return closest_sum",
+    "is_plagiarized": true,
+    "source_file": "threeSumClosest.py",
+    "source_function_name": "threeSumClosest"
+  },
+  {
+    "test_id": "negative_007",
+    "query_code": "from statistics import median\ndef get_median_of_two_lists(l1, l2):\n    merged = sorted(l1 + l2)\n    return median(merged)",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_008",
+    "query_code": "def remove_kth_from_list_end(linked_list, k):\n    slow = fast = linked_list\n    for _ in range(k):\n        fast = fast.next\n    if not fast:\n        return linked_list.next\n    while fast.next:\n        fast = fast.next\n        slow = slow.next\n    slow.next = slow.next.next\n    return linked_list",
+    "is_plagiarized": true,
+    "source_file": "removeNthFromEnd.py",
+    "source_function_name": "removeNthFromEnd"
+  },
+  {
+    "test_id": "negative_008",
+    "query_code": "def check_sum_pair(data, value):\n    seen = set()\n    for num in data:\n        if value - num in seen:\n            return True\n        seen.add(num)\n    return False",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_009",
+    "query_code": "def remove_value_in_place(data, val_to_remove):\n    write_pointer = 0\n    for read_pointer in range(len(data)):\n        if data[read_pointer] != val_to_remove:\n            data[write_pointer] = data[read_pointer]\n            write_pointer += 1\n    return write_pointer",
+    "is_plagiarized": true,
+    "source_file": "removeElement.py",
+    "source_function_name": "removeElement"
+  },
+  {
+    "test_id": "negative_009",
+    "query_code": "def convert_str_to_int(s):\n    s = s.strip()\n    if not s: return 0\n    sign, i = 1, 0\n    if s[0] in '+-':\n        if s[0] == '-': sign = -1\n        i += 1\n    res = 0\n    while i < len(s) and s[i].isdigit():\n        res = res * 10 + int(s[i])\n        i += 1\n    res *= sign\n    return max(-2**31, min(res, 2**31 - 1))",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_010",
+    "query_code": "def search_rotated_array(arr, val):\n    l, r = 0, len(arr) - 1\n    while l <= r:\n        m = (l + r) // 2\n        if arr[m] == val: return m\n        if arr[l] <= arr[m]:\n            if arr[l] <= val and val < arr[m]: r = m - 1\n            else: l = m + 1\n        else:\n            if arr[m] < val and val <= arr[r]: l = m + 1\n            else: r = m - 1\n    return -1",
+    "is_plagiarized": true,
+    "source_file": "search.py",
+    "source_function_name": "search"
+  },
+  {
+    "test_id": "negative_010",
+    "query_code": "def add_two_list_nodes(list1, list2):\n    dummy_head = ListNode(0)\n    current = dummy_head\n    carry_over = 0\n    while list1 is not None or list2 is not None or carry_over != 0:\n        val1 = list1.val if list1 else 0\n        val2 = list2.val if list2 else 0\n        column_sum = val1 + val2 + carry_over\n        carry_over = column_sum // 10\n        new_node = ListNode(column_sum % 10)\n        current.next = new_node\n        current = new_node\n        list1 = list1.next if list1 else None\n        list2 = list2.next if list2 else None\n    return dummy_head.next",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_011",
+    "query_code": "from collections import Counter\ndef categorize_anagrams(strings):\n    anagram_map = {}\n    for s in strings:\n        sorted_tuple = tuple(sorted(s))\n        if sorted_tuple not in anagram_map:\n            anagram_map[sorted_tuple] = []\n        anagram_map[sorted_tuple].append(s)\n    return list(anagram_map.values())",
+    "is_plagiarized": true,
+    "source_file": "groupAnagrams.py",
+    "source_function_name": "groupAnagrams"
+  },
+  {
+    "test_id": "negative_011",
+    "query_code": "def find_k_sum_closest(arr, k_val, t_val):\n    arr.sort()\n    n = len(arr)\n    if n <= k_val: return sum(arr)\n    closest_dist = float('inf')\n    res = 0\n    def backtrack(start, current_sum, count):\n        nonlocal closest_dist, res\n        if count == k_val:\n            if abs(t_val - current_sum) < closest_dist:\n                closest_dist = abs(t_val - current_sum)\n                res = current_sum\n            return\n        if start >= n: return\n        backtrack(start + 1, current_sum + arr[start], count + 1)\n        backtrack(start + 1, current_sum, count)\n    backtrack(0, 0, 0)\n    return res",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_012",
+    "query_code": "def q_sort(items):\n    if not items:\n        return []\n    pivot_element = items[0]\n    smaller = q_sort([x for x in items[1:] if x < pivot_element])\n    larger = q_sort([x for x in items[1:] if x >= pivot_element])\n    return smaller + [pivot_element] + larger",
+    "is_plagiarized": true,
+    "source_file": "quicksort.py",
+    "source_function_name": "quicksort"
+  },
+  {
+    "test_id": "negative_012",
+    "query_code": "def merge_sort_iterative(items):\n    if len(items) <= 1: return items\n    step = 1\n    while step < len(items):\n        for i in range(0, len(items) - step, 2 * step):\n            left = items[i:i + step]\n            right = items[i + step:i + 2 * step]\n            merged = merge_helper(left, right)\n            items[i:i + len(merged)] = merged\n        step *= 2\n    return items\n\ndef merge_helper(l, r):\n    res = []\n    i, j = 0, 0\n    while i < len(l) and j < len(r):\n        if l[i] < r[j]: res.append(l[i]); i += 1\n        else: res.append(r[j]); j += 1\n    res.extend(l[i:])\n    res.extend(r[j:])\n    return res",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_013",
+    "query_code": "def m_sort(data):\n    if len(data) > 1:\n        mid_idx = len(data) // 2\n        left_half = data[:mid_idx]\n        right_half = data[mid_idx:]\n        m_sort(left_half)\n        m_sort(right_half)\n        i = j = k = 0\n        while i < len(left_half) and j < len(right_half):\n            if left_half[i] < right_half[j]:\n                data[k] = left_half[i]\n                i += 1\n            else:\n                data[k] = right_half[j]\n                j += 1\n            k += 1\n        while i < len(left_half):\n            data[k] = left_half[i]\n            i += 1; k += 1\n        while j < len(right_half):\n            data[k] = right_half[j]\n            j += 1; k += 1\n    return data",
+    "is_plagiarized": true,
+    "source_file": "mergesort.py",
+    "source_function_name": "mergesort"
+  },
+  {
+    "test_id": "negative_013",
+    "query_code": "def bubble_sort_optimized(data):\n    n = len(data)\n    for i in range(n):\n        is_sorted = True\n        for j in range(n - i - 1):\n            if data[j] > data[j+1]:\n                data[j], data[j+1] = data[j+1], data[j]\n                is_sorted = False\n        if is_sorted: break\n    return data",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_014",
+    "query_code": "def b_sort(numbers):\n    list_len = len(numbers)\n    for i in range(list_len):\n        for j in range(0, list_len - i - 1):\n            if numbers[j] > numbers[j + 1]:\n                numbers[j], numbers[j + 1] = numbers[j + 1], numbers[j]\n    return numbers",
+    "is_plagiarized": true,
+    "source_file": "bubblesort.py",
+    "source_function_name": "bubblesort"
+  },
+  {
+    "test_id": "negative_014",
+    "query_code": "def insertion_sort_recursive(data, n):\n    if n <= 1: return\n    insertion_sort_recursive(data, n - 1)\n    last = data[n - 1]\n    j = n - 2\n    while j >= 0 and data[j] > last:\n        data[j + 1] = data[j]\n        j -= 1\n    data[j + 1] = last\n    return data",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  },
+  {
+    "test_id": "positive_015",
+    "query_code": "def i_sort(items):\n    for idx in range(1, len(items)):\n        current_val = items[idx]\n        pos = idx\n        while pos > 0 and items[pos - 1] > current_val:\n            items[pos] = items[pos - 1]\n            pos -= 1\n        items[pos] = current_val\n    return items",
+    "is_plagiarized": true,
+    "source_file": "insertionsort.py",
+    "source_function_name": "insertionsort"
+  },
+  {
+    "test_id": "negative_015",
+    "query_code": "def delete_kth_node_from_end(head, k):\n    p1 = head\n    p2 = head\n    for i in range(k):\n        p1 = p1.next\n    if not p1:\n        return head.next\n    while p1.next:\n        p1 = p1.next\n        p2 = p2.next\n    p2.next = p2.next.next\n    return head",
+    "is_plagiarized": false,
+    "source_file": null,
+    "source_function_name": null
+  }
+]

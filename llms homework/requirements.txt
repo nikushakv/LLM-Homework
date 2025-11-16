@@ -1,0 +1,29 @@
+# For interacting with locally-run Large Language Models (LLMs) via Ollama
+ollama
+
+# For creating vector embeddings from code snippets
+sentence-transformers
+
+# For fast vector similarity search (the core of embedding search)
+faiss-cpu
+
+# For lexical/keyword search (BM25 algorithm)
+rank-bm25
+
+# Core libraries for data handling and scientific computing
+pandas
+numpy
+
+# For creating plots and visualizations
+matplotlib
+seaborn
+
+# For running the .ipynb notebook files
+jupyter
+notebook
+
+# For downloading the GitHub repositories
+requests
+
+# A handy utility for showing progress bars during long tasks
+tqdm
